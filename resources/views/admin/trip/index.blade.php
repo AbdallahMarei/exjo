@@ -18,7 +18,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Category</th>
+                        <th>Country</th>
                         <th>Brief</th>
                         <th>Description</th>
                         <th>Image</th>
@@ -30,11 +30,11 @@
                     </tr>
                 </thead>
                 <tbody >
-                @foreach($trip as $item)
+                    @foreach($trip as $item)
                     <tr class="border">
                         <td>{{ $item->id }}</td>
                         <td >{{ $item->name }}</td>
-                        <td >{{ $item->category->name }}</td>
+                        <td >{{ $item->country->name }}</td>
                         <td >{{ $item->brief }}</td>
                         <td>{{ $item->description }}</td>
                         <td>

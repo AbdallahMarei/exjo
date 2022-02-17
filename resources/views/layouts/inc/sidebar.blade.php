@@ -18,11 +18,11 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white {{ Request::is('categories') ? 'active' : ''; }} " href="{{ url('categories') }}">
+          <a class="nav-link text-white {{ Request::is('countries') ? 'active' : ''; }} " href="{{ url('countries') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">category</i>
             </div>
-            <span class="nav-link-text ms-1">Categories</span>
+            <span class="nav-link-text ms-1">Countries</span>
           </a>
         </li>
         <li class="nav-item">

@@ -14,11 +14,11 @@
         </a>
         <hr>
         <br>
-        <a href="{{ url('categories') }}">
+        <a href="{{ url('countries') }}">
             <div class="card">
                 <div class="card-head">
-                    <h4>Categories</h4>
-                    <p>{{$category->count()}}</p>
+                    <h4>Countries</h4>
+                    <p>{{$country->count()}}</p>
                 </div>
             </div>
         </a>

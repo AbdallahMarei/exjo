@@ -22,8 +22,8 @@ class Trip extends Model
         'meta_description',
     ];
 
-    public function category()
+    public function country()
     {
-        return $this->belongsTo(Category::class, 'cat_id', 'id');
+        return $this->belongsTo(Country::class, 'cat_id', 'id');
     }
 }

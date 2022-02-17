@@ -5,24 +5,42 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Trip;
-use App\Models\Category;
+use App\Models\Country;
 
 class TripController extends Controller
 {
     public function index (){
         $trip = Trip::all();
-        $category = Category::all();
-        return view('admin.trip.index', compact('trip','category'));
+        $country = Country::all();
+        return view('admin.trip.index', compact('trip','country'));
     }
     public function showAllProducts (){
         $trip = Trip::all();
-        $category = Category::all();
-        return view('destinations', compact('trip','category'));
+        $country = Country::all();
+        return view('destinations', compact('trip','country'));
     }
+    public function showFilteredProducts ($id){
+        $trip = Trip::where('cat_id','=',$id)->get();
+        $country = Country::all();
+        return view('destinations', compact('trip','country'));
+    }
+    public function showHighestProducts (){
+        $trip = Trip::orderBy('price', 'desc')->get();
+        $country = Country::all();
+        return view('destinations', compact('trip','country'))->withErrors(['msg' => 'Highest->Lowest'])
+        ; 
+    }
+    public function showLowestProducts (){
+        $trip = Trip::orderBy('price', 'asc')->get();
+        $country = Country::all();
+        return view('destinations', compact('trip','country'))->withErrors(['msg' => 'Lowest->Highest'])
+        ; 
+    }
+
     public function showAllProductsWelcome (){
         $trip = Trip::orderBy('id', 'desc')->take(3)->get();
-        $category = Category::all();
-        return view('welcome', compact('trip','category'));
+        $country = Country::all();
+        return view('welcome', compact('trip','country'));
     }
 
     public function show($id)
@@ -35,8 +53,8 @@ class TripController extends Controller
 
 
     public function add (){
-        $category = Category::all();
-        return view('admin.trip.add' ,compact('category'));
+        $country = Country::all();
+        return view('admin.trip.add' ,compact('country'));
     }
 
     public function insert (Request $request ){
@@ -68,8 +86,8 @@ class TripController extends Controller
 
     public function edit($id){
         $trip = Trip::find($id);
-        $category = Category::all();
-        return view('admin.trip.edit', compact('trip','category'));
+        $country = Country::all();
+        return view('admin.trip.edit', compact('trip','country'));
     }
 
     public function update(Request $request ,$id){

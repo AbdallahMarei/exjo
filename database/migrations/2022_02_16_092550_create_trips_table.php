@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('trips', function (Blueprint $table) {
             $table->id();
-            $table->integer('cat_id');
+            $table->integer('cat_id')->reference('');
             $table->string('name');
             $table->mediumText('brief');
             $table->longText('description');

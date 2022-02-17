@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\FrontendController;
-use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\TripController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +17,9 @@ use App\Http\Controllers\Admin\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [TripController::class, 'showAllProductsWelcome']);
 
+// Mar3i
+Route::get('/', [TripController::class, 'showAllProductsWelcome']);
 Route::get('/contact', function () {
     return view('contact');
 });
@@ -25,23 +27,29 @@ Route::get('/about', function () {
     return view('about');
 });
 Route::get('/destinations', [TripController::class, 'showAllProducts']);
+Route::get('/book/{id}', [ReservationController::class, 'index']);
+Route::get('/book-add/{id}', [ReservationController::class, 'insert']);
+Route::get('destinations/{id}', [TripController::class, 'showFilteredProducts']);
+Route::get('/destinations-h2l', [TripController::class, 'showHighestProducts']);
+Route::get('/destinations-l2h', [TripController::class, 'showLowestProducts']);
 Route::get('/show-trip/{id}', [TripController::class, 'show']);
 
+
+
+// Sanad
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
- Route::middleware(['auth','isAdmin'])->group(function() {
+Route::middleware(['auth','isAdmin'])->group(function() {
     Route::get('/dashboard', [FrontendController::class, 'index']);
 
     // Categories /////////////////////
 
-    Route::get('/categories', [CategoryController::class, 'index']);
-    Route::get('add-category', [CategoryController::class, 'add']);
-    Route::get('edit-category/{id}', [CategoryController::class, 'edit']);
-    Route::post('insert-category', [CategoryController::class, 'insert']);
-    Route::put('update-category/{id}', [CategoryController::class, 'update']);
-    Route::get('delete-category/{id}', [CategoryController::class, 'destroy']);
+    Route::get('/countries', [CountryController::class, 'index']);
+    Route::get('add-country', [CountryController::class, 'add']);
+    Route::get('edit-country/{id}', [CountryController::class, 'edit']);
+    Route::post('insert-country', [CountryController::class, 'insert']);
+    Route::put('update-country/{id}', [CountryController::class, 'update']);
+    Route::get('delete-country/{id}', [CountryController::class, 'destroy']);
 
     // Trips /////////////////////
 

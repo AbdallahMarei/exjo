@@ -16,9 +16,14 @@
     <!--/ bradcam_area  -->
 
     <div class="popular_places_area">
+        
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
+                @if($errors->any())
+                    <div class="alert alert-dark">{{$errors->first()}}</div>
+                @endif
+
                     <div class="filter_result_wrap">
                         <h3>Filter Result</h3>
                         <div class="filter_bordered">
@@ -26,31 +31,23 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="single_select">
-                                            <select>
+                                            <select onchange="window.location.href=this.options[this.selectedIndex].value;">
                                                 <option data-display="Country">Country</option>
-                                                <option value="1">Africa</option>
-                                                <option value="2">canada</option>
-                                                <option value="4">USA</option>
+                                                @foreach($country as $item )
+                                                <option value="{{ url('/destinations/'.$item->id) }}">{{$item->name}}</option>
+
+                                                @endforeach
                                               </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="single_select">
-                                            <select>
-                                                <option data-display="Travel type">Travel type</option>
-                                                <option value="1">advance</option>
-                                                <option value="2">advance</option>
-                                                <option value="4">premium</option>
+                                            <select onchange="window.location.href=this.options[this.selectedIndex].value;">
+                                                <option data-display="Travel type">Sort</option>
+                                                <option value="{{ url('/destinations-h2l')}}">Price:Highest->Lowest</option>
+                                                <option value="{{ url('/destinations-l2h')}}">Price:Lowest->Highest</option>
+
                                               </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="range_slider_wrap">
-                                            <span class="range">Prise range</span>
-                                            <div id="slider-range"></div>
-                                            <p>
-                                                <input type="text" id="amount" readonly style="border:0; color:#7A838B; font-weight:400;">
-                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -59,7 +56,9 @@
                             </div>
 
                             <div class="reset_btn">
-                                <button class="boxed-btn4" type="submit">Reset</button>
+                                <form action="{{url('/destinations')}}">
+                                    <button class="boxed-btn4" type="submit">Reset</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -75,14 +74,10 @@
                                 </div>
                                 <div class="place_info">
                                     <a href="{{ URL::to('show-trip/' . $val->id) }}"><h3>{{$val->name}}</h3></a>
-                                    <p>Jordan</p>
+                                    <p>{{$val->country->name}}</p>
+                                    <p>{{$val->brief}}</p>
                                     <div class="rating_days d-flex justify-content-between">
                                         <span class="d-flex justify-content-center align-items-center">
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i>
                                              <a href="{{ URL::to('show-trip/' . $val->id) }}">(20 Review)</a>
                                         </span>
                                         <div class="days">
