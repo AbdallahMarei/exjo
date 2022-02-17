@@ -20,7 +20,7 @@ class TripController extends Controller
         return view('destinations', compact('trip','category'));
     }
     public function showAllProductsWelcome (){
-        $trip = Trip::all();
+        $trip = Trip::orderBy('id', 'desc')->take(3)->get();
         $category = Category::all();
         return view('welcome', compact('trip','category'));
     }
