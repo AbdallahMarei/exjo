@@ -38,7 +38,9 @@
     <link rel="stylesheet" href="{{asset('css/slicknav.css')}}">
     <link rel="stylesheet" href="{{asset('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css')}}">
 
+
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/profile.css')}}">
 </head>
 <body>
     <div id="app">
@@ -86,7 +88,7 @@
                             @endif
                         @else
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="profile">
                             {{ Auth::user()->name }}
                             </a>
                             <li class="nav-item">
@@ -111,7 +113,7 @@
             </div>
         </div>
     </header>
-        
+
 
         <main class="py-4">
             @yield('content')
@@ -273,9 +275,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="{{asset('js/plugins.js')}}"></script>
     <script src="{{asset('js/gijgo.min.js')}}"></script>
     <script src="{{asset('js/slick.min.js')}}"></script>
-   
 
-    
+
+
     <!--contact js-->
     <script src="{{asset('js/contact.js')}}"></script>
     <script src="{{asset('js/jquery.ajaxchimp.min.js')}}"></script>

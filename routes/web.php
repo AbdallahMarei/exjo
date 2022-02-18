@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\TripController;
 use App\Http\Controllers\Admin\UserController;
 
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +18,7 @@ use App\Http\Controllers\Admin\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', [TripController::class, 'showAllProductsWelcome']);
 
 Route::get('/contact', function () {
@@ -24,6 +27,19 @@ Route::get('/contact', function () {
 Route::get('/about', function () {
     return view('about');
 });
+
+Route::get('/profile', function () {
+    return view('profile');
+});
+
+
+
+
+
+
+
+
+
 Route::get('/destinations', [TripController::class, 'showAllProducts']);
 Route::get('/show-trip/{id}', [TripController::class, 'show']);
 
@@ -31,7 +47,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
- Route::middleware(['auth','isAdmin'])->group(function() {
+Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [FrontendController::class, 'index']);
 
     // Categories /////////////////////
@@ -51,7 +67,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     Route::put('update-trip/{id}', [TripController::class, 'update']);
     Route::post('insert-trip', [TripController::class, 'insert']);
     Route::get('delete-trip/{id}', [TripController::class, 'destroy']);
-    
+
     // Users /////////////////////
 
     Route::get('users', [UserController::class, 'index']);
@@ -60,6 +76,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     Route::put('update-user/{id}', [UserController::class, 'update']);
     Route::post('insert-user', [UserController::class, 'insert']);
     Route::get('delete-user/{id}', [UserController::class, 'destroy']);
-
-    
- });
+});
