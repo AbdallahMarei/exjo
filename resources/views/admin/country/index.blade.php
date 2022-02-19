@@ -8,8 +8,8 @@
 @endif
     <div class="card">
         <div class="card-header">
-            <h1>Category Page</h1>
-            <a href="{{ url('add-category') }}" class="btn btn-primary">Add Category!</a>
+            <h1>Countries Page</h1>
+            <a href="{{ url('add-country') }}" class="btn btn-primary">Add Country!</a>
             <hr>
         </div>
         <div class="card-body">
@@ -18,23 +18,24 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Description</th>
-                        <th>Image</th>
+                        <th>Flag</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                @foreach($category as $item)
+                    @php
+                    $counter = 0
+                    @endphp
+                @foreach($country as $item)
                     <tr class="border">
-                        <td>{{ $item->id }}</td>
+                        <td>{{ ++$counter }}</td>
                         <td >{{ $item->name }}</td>
-                        <td>{{ $item->description }}</td>
                         <td>
-                            <img class="w-20" src="{{ asset('/assets/uploads/category/'.$item->image) }}" alt="cat_image">
+                            <img class="w-20" src="{{ asset('/assets/uploads/country/'.$item->flag) }}" alt="cat_image">
                         </td>
                         <td>
-                            <a href="{{ url('edit-category/'.$item->id) }}" class="btn btn-primary">Edit</a>
-                            <a href="{{ url('delete-category/'.$item->id) }}" class="btn btn-danger">Delete</a>
+                            <a href="{{ url('edit-country/'.$item->id) }}" class="btn btn-primary">Edit</a>
+                            <a href="{{ url('delete-country/'.$item->id) }}" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                 @endforeach

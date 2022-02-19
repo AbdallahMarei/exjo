@@ -13,16 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('reservations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->longText('description');
-            $table->tinyInteger('status')->default('0');
-            $table->tinyInteger('popular')->default('0');
-            $table->string('image');
-            $table->string('meta_title');
-            $table->string('meta_descrip');
-            $table->string('meta_keywords');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('trip_id');
+            $table->string('phone');
+            $table->integer('quantity');
+            $table->integer('totalPrice');
             $table->timestamps();
         });
     }
@@ -34,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('reservations');
     }
 };

@@ -16,9 +16,9 @@
                         <hr>
                     </div>
                     <div class="col-md-6 mb-3" >
-                        <label for="">Category</label>
+                        <label for="">Country</label>
                         <select name="cat_id" class="form-control">
-                            @foreach($category as $item )
+                            @foreach($country as $item )
                             <option {{ $trip->cat_id == $item->id ? 'selected' : '' }} value="{{ $item->id }} ">{{ $item->name }}</option>
                             @endforeach
                         </select>
