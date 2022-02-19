@@ -56,7 +56,7 @@ Route::get('/show-trip/{id}', [TripController::class, 'show']);
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware(['auth','isAdmin'])->group(function() {
-    Route::get('/dashboard', [FrontendController::class, 'index']);
+    Route::get('dashboard', [FrontendController::class, 'index']);
 
     // Categories /////////////////////
 
@@ -84,4 +84,12 @@ Route::middleware(['auth','isAdmin'])->group(function() {
     Route::put('update-user/{id}', [UserController::class, 'update']);
     Route::post('insert-user', [UserController::class, 'insert']);
     Route::get('delete-user/{id}', [UserController::class, 'destroy']);
+
+    // Reservations ////////////////////////////
+    Route::get('reservations', [ReservationController::class, 'adminIndex']);
+    Route::get('accepted-reservations', [ReservationController::class, 'acceptedIndex']);
+    Route::put('accept-reser/{id}', [ReservationController::class, 'acceptStatus']);
+    Route::get('reject-reser/{id}', [ReservationController::class, 'destroy']);
+
+
 });

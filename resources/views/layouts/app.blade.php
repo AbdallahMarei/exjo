@@ -88,9 +88,16 @@
                             @endif
                         @else
                         <li class="nav-item">
+                            @if(Auth::user()->role_as==0)
                             <a class="nav-link" href="profile">
                             {{ Auth::user()->name }}
                             </a>
+                            @else
+                            <a class="nav-link" href="dashboard">
+                            Dashboard
+                            </a>
+                            @endif
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                             </li>

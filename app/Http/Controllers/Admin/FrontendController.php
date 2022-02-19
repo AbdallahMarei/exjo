@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Country;
 use App\Models\Trip;
+use App\Models\Reservation;
 
 class FrontendController extends Controller
 {
@@ -14,6 +15,7 @@ class FrontendController extends Controller
         $user = User::all();
         $trip = Trip::all();
         $country = Country::all();
-        return view('admin.index',compact('user','trip','country'));
+        $reservation = Reservation::all();
+        return view('admin.index',compact('user','trip','country','reservation'));
     }
 }

@@ -32,6 +32,17 @@
                 </div>
             </div>
         </a>
+        <hr>
+        <br>
+
+        <a href="{{ url('reservations') }}">
+            <div class="card">
+                <div class="card-head">
+                    <h4>Reservations</h4>
+                    <p>{{$reservation->count()}}</p>
+                </div>
+            </div>
+        </a>
     </div>
 </div>
 @endsection

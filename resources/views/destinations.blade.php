@@ -66,6 +66,7 @@
                 <div class="col-lg-8">
                     <div class="row">
                         @foreach($trip as $val)
+                        @if($val->capacity>0)
                         <div class="col-lg-6 col-md-6">
                             <div class="single_place">
                                 <div class="thumb">
@@ -76,9 +77,10 @@
                                     <a href="{{ URL::to('show-trip/' . $val->id) }}"><h3>{{$val->name}}</h3></a>
                                     <p>{{$val->country->name}}</p>
                                     <p>{{$val->brief}}</p>
+                                    
                                     <div class="rating_days d-flex justify-content-between">
                                         <span class="d-flex justify-content-center align-items-center">
-                                             <a href="{{ URL::to('show-trip/' . $val->id) }}">(20 Review)</a>
+                                             <p>{{$val->capacity}} Seats Left</p>
                                         </span>
                                         <div class="days">
                                             <i class="fa fa-clock-o"></i>
@@ -88,6 +90,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                         @endforeach
                     </div>
                 </div>

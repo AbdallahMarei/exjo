@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Reservation;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -62,11 +63,11 @@ class UserController extends Controller
 
     public function userProfile()
     {
+        $reservation = Reservation::where('user_id','=',Auth::user()->id)->get();
+
         $userD =  Auth::user();
-        return view('profile', compact('userD'));
+        return view('profile', compact('userD','reservation'));
     }
-
-
 
     public function updateProfileUser(Request $request, $id)
     {
@@ -79,5 +80,10 @@ class UserController extends Controller
 
         $userD->updateOrFail();
         return redirect('/profile')->with('success', 'Your Information has been Successfully Updated!');
+    }
+    public function destroy($id){
+        $user = User::find($id);
+        $user->delete();
+        return redirect('/users')->with('success', 'Deleted Successfully!');
     }
 }

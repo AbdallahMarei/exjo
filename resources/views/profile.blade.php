@@ -171,32 +171,25 @@
                             <div className='customProfile'>
                                 <table style="width: 100%">
                                     <tr>
-                                        <th>
-                                            <h5>Country</h5>
-                                        </th>
-
-
-                                        <th>
-                                            <h5>Date</h5>
-                                        </th>
-                                        <th>
-                                            <h5>Duration</h5>
-                                        </th>
+                                        <th>Reserved Name</th>
+                                        <th>Trip</th>
+                                        <th>Phone</th>
+                                        <th>Number of Passengers</th>
+                                        <th>Price</th>
+                                        <th>Status</th>
                                     </tr>
 
-                                    <tr>
 
-                                        <td>
-                                            <h5>ahmad</h5>
-                                        </td>
-                                        <td>
-                                            <h5>ahmad</h5>
-                                        </td>
-                                        <td>
-                                            <h5>ahmad</h5>
-                                        </td>
-                                    </tr>
-
+                                    @foreach($reservation as $item)
+                                        <tr class="border">
+                                            <td >{{ $item->name }}</td>
+                                            <td >{{ $item->trip->name }}</td>
+                                            <td >{{ $item->phone }}</td>
+                                            <td>{{ $item->quantity }}</td>
+                                            <td>{{ $item->totalPrice }} JD</td>
+                                            <td>{{ $item->status }}</td>
+                                         </tr>
+                                    @endforeach
                                 </table>
                             </div>
                         </div>

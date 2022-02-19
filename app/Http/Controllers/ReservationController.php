@@ -22,20 +22,54 @@ class ReservationController extends Controller
         }
 
     }
-
     public function insert (Request $request, $id ){
         $oneTrip=Trip::find($id);
+        $oneReser=Reservation::all();
+        $reser = new Reservation();
+        $reser->name = $request->input('name');
+        $reser->user_id = Auth::user()->id;
+        forEach($oneReser as $item)
+        {
+            if($item->name == $reser->name && $item->user_id == $reser->user_id){
+            return redirect('destinations/'.$id)->withErrors('You already have a reservation on this period');
+            }
+        }
+       
         $price1 = $oneTrip->price;
         $totalPrice1 = (int)$request->input('quantity');
         $totalPrice2 = $totalPrice1 * $price1;
 
-        $reser = new Reservation();
-        $reser->name = $request->input('name');
         $reser->phone = $request->input('phone');
         $reser->quantity = $request->input('quantity');
         $reser->totalPrice = $totalPrice2;
-        $reser->user_id = Auth::user()->id;
         $reser->trip_id = $id;
         $reser->save();
+        return redirect('/destinations')->withErrors('You have successfully booked the trip');
+    }
+
+    public function adminIndex (){
+        $reservation = Reservation::where('status', '=' , 'pending')->get();
+
+        return view('admin.reservation.index', compact('reservation'));
+
+    }
+    public function acceptedIndex (){
+        $reservation = Reservation::where('status', '=' , 'accepted')->get();
+        return view('admin.reservation.accepted', compact('reservation'));
+
+    }
+    public function acceptStatus ($id){
+        $reservation = Reservation::find($id);
+        $reservation->status = "accepted";
+        $reservation->update();
+        return redirect('/reservations')->with('success', 'Reservation Accepted !');
+       
+
+    }
+    public function destroy ($id){
+        $reservation = Reservation::find($id);
+        $reservation->delete();
+        return redirect('/reservations')->with('success', 'Reservation Deleted !');
+
     }
 }

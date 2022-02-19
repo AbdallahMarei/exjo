@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('phone');
             $table->integer('quantity');
             $table->integer('totalPrice');
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }
