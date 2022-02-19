@@ -78,10 +78,10 @@
                                     <p>Jordan</p>
                                     <div class="rating_days d-flex justify-content-between">
                                         <span class="d-flex justify-content-center align-items-center">
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
-                                             <i class="fa fa-star"></i> 
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
+                                             <i class="fa fa-star"></i>
                                              <i class="fa fa-star"></i>
                                              <a href="{{ URL::to('show-trip/' . $val->id) }}">(20 Review)</a>
                                         </span>

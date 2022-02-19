@@ -79,32 +79,38 @@
                     </div>
                     <div class="card-body tab-content">
                         <div class="tab-pane active" id="profile">
+                            @if (Session::get('success'))
+                                <div class="alert alert-success">
+                                    <p>{{ Session::get('success') }}</p>
+                                </div>
+                            @endif
                             <h6>YOUR PROFILE INFORMATION</h6>
                             <hr>
-                            <form >
+                            <form>
+
                                 <div class="form-group">
                                     <label for="fullName">Full Name</label>
                                     <input disabled type="text" class="form-control" id="fullName"
                                         aria-describedby="fullNameHelp" placeholder="Enter your fullname"
-                                        value="{{ Auth::user()->name }}">
+                                        value="{{ $userD->name }}">
 
                                 </div>
                                 <div class="form-group">
                                     <label for="bio">Email</label>
                                     <input disabled type="text" class="form-control" id="fullName"
                                         aria-describedby="fullNameHelp" placeholder="Enter your fullname"
-                                        value="{{ Auth::user()->email }}">
+                                        value="{{ $userD->email }}">
 
                                 </div>
                                 <div class="form-group">
                                     <label for="url">Phone</label>
                                     <input disabled name="phone" type="text" class="form-control" id="url"
-                                        placeholder="Enter your website address" value="077777777777">
+                                        placeholder="Enter your website address" value="{{ $userD->phone }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="location">Location</label>
                                     <input disabled name="location" type="text" class="form-control" id="location"
-                                        placeholder="Enter your location" value="Bay Area, San Francisco, CA">
+                                        placeholder="Enter your location" value="{{ $userD->location }}">
                                 </div>
 
                                 {{-- <button type="button" class="btn btn-primary">Update Profile</button>
@@ -114,31 +120,32 @@
                         <div class="tab-pane" id="account">
                             <h6>ACCOUNT SETTINGS</h6>
                             <hr>
-                            <form method="POST">
-
+                            <form method="POST" action="{{ url('updateUser/' . $userD->id) }}">
+                                @csrf
+                                @method('PUT')
                                 <div class="form-group">
                                     <label for="fullName">Full Name</label>
-                                    <input id="name" type="text" class="form-control" id="fullName"
+                                    <input name="name" type="text" class="form-control" id="fullName"
                                         aria-describedby="fullNameHelp" placeholder="Enter your fullname"
-                                        value="{{ Auth::user()->name }}">
+                                        value="{{ $userD->name }}">
 
                                 </div>
                                 <div class="form-group">
                                     <label for="bio">Email</label>
                                     <input name="email" type="text" class="form-control" id="fullName"
                                         aria-describedby="fullNameHelp" placeholder="Enter your fullname"
-                                        value="{{ Auth::user()->email }}">
+                                        value="{{ $userD->email }}">
 
                                 </div>
                                 <div class="form-group">
                                     <label for="url">Phone</label>
                                     <input name="phone" type="text" class="form-control" id="url"
-                                        placeholder="Enter your website address" value="077777777777">
+                                        placeholder="Enter your website address" value="{{ $userD->phone }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="location">Location</label>
                                     <input name="location" type="text" class="form-control" id="location"
-                                        placeholder="Enter your location" value="Bay Area, San Francisco, CA">
+                                        placeholder="Enter your location" value="{{ $userD->location }}">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Update Profile</button>
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Trip;
 use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
 
 class TripController extends Controller
 {

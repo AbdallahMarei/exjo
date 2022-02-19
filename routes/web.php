@@ -28,10 +28,11 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/profile', function () {
-    return view('profile');
-});
-
+// Route::get('/profile', function () {
+//     return view('profile');
+// });
+Route::get('/profile', [UserController::class, 'userProfile']);
+Route::put('updateUser/{id}', [UserController::class, 'updateProfileUser']);
 
 
 
