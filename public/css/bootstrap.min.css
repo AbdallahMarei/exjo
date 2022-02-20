@@ -7937,9 +7937,14 @@ button.bg-dark:hover {
     padding: 1.5rem!important
 }
 
-.pt-4,
-.py-4 {
+.pt-4
+/* ,.py-4  */
+{
     padding-top: 1.5rem!important
+}
+
+.py-4{
+    padding-top: 0 !important;
 }
 
 .pr-4,
@@ -7947,8 +7952,9 @@ button.bg-dark:hover {
     padding-right: 1.5rem!important
 }
 
-.pb-4,
-.py-4 {
+.pb-4
+/* ,.py-4  */
+{
     padding-bottom: 1.5rem!important
 }
 

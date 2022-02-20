@@ -6,6 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
+ 
                     <div class="bradcam_text text-center">
                         <h3>contact</h3>
                         <p>Pixel perfect design with awesome contents</p>
@@ -14,10 +15,14 @@
             </div>
         </div>
     </div>
+
     <!--/ bradcam_area  -->
 
     <!-- ================ contact section start ================= -->
     <section class="contact-section">
+                @if($errors->any())
+                    <div class="col-md-12 alert alert-success">{{$errors->first()}}</div>
+                @endif
             <div class="container">
                 <div class="d-none d-sm-block mb-5 pb-4">
                     <div id="map" style="height: 480px; position: relative; overflow: hidden;"> </div>
@@ -66,7 +71,8 @@
                         <h2 class="contact-title">Get in Touch</h2>
                     </div>
                     <div class="col-lg-8">
-                        <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                        <form class="form-contact contact_form" action="{{url('add-inquiry')}}" method="post">
+                            @csrf
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">

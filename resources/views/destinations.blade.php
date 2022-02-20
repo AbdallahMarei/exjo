@@ -67,29 +67,31 @@
                     <div class="row">
                         @foreach($trip as $val)
                         @if($val->capacity>0)
-                        <div class="col-lg-6 col-md-6">
-                            <div class="single_place">
-                                <div class="thumb">
-                                    <img src="{{ asset('/assets/uploads/trip/'.$val->image) }}" alt="">
-                                    <a href="{{ URL::to('show-trip/' . $val->id) }}" class="prise">${{$val->price}}</a>
-                                </div>
-                                <div class="place_info">
-                                    <a href="{{ URL::to('show-trip/' . $val->id) }}"><h3>{{$val->name}}</h3></a>
-                                    <p>{{$val->country->name}}</p>
-                                    <p>{{$val->brief}}</p>
-                                    
-                                    <div class="rating_days d-flex justify-content-between">
-                                        <span class="d-flex justify-content-center align-items-center">
-                                             <p>{{$val->capacity}} Seats Left</p>
-                                        </span>
-                                        <div class="days">
-                                            <i class="fa fa-clock-o"></i>
-                                            <a href="{{ URL::to('show-trip/' . $val->id) }}">{{$val->days}} Days</a>
+                        <a href="{{ URL::to('show-trip/' . $val->id) }}">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="single_place">
+                                    <div class="thumb">
+                                        <img src="{{ asset('/assets/uploads/trip/'.$val->image) }}" alt="">
+                                        <p  class="prise">${{$val->price}}</p>
+                                    </div>
+                                    <div class="place_info">
+                                    <h3>{{$val->name}}</h3>
+                                        <p>{{$val->country->name}}</p>
+                                        <p>{{$val->brief}}</p>
+                                        
+                                        <div class="rating_days d-flex justify-content-between">
+                                            <span class="d-flex justify-content-center align-items-center">
+                                                <p>{{$val->capacity}} Seats Left</p>
+                                            </span>
+                                            <div class="days">
+                                                <i class="fa fa-clock-o"></i>
+                                            {{$val->days}} Days
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                         @endif
                         @endforeach
                     </div>

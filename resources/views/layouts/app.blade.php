@@ -89,7 +89,7 @@
                         @else
                         <li class="nav-item">
                             @if(Auth::user()->role_as==0)
-                            <a class="nav-link" href="profile">
+                            <a class="nav-link" href="{{url('profile')}}">
                             {{ Auth::user()->name }}
                             </a>
                             @else

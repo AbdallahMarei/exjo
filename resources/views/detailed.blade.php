@@ -19,6 +19,7 @@
                     <div class="col-md-12">
                         <a class="boxed-btn4" href="{{ url('/book/'.$oneTrip->id) }}">Book Now!</a>
                     </div>
+                </div>          
             </div>
         </div>
     </div>

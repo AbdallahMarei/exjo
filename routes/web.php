@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\TripController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\InquiryController;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -32,16 +33,8 @@ Route::get('/about', function () {
 // Route::get('/profile', function () {
 //     return view('profile');
 // });
-Route::get('/profile', [UserController::class, 'userProfile']);
+Route::get('profile', [UserController::class, 'userProfile']);
 Route::put('updateUser/{id}', [UserController::class, 'updateProfileUser']);
-
-
-
-
-
-
-
-
 Route::get('/destinations', [TripController::class, 'showAllProducts']);
 Route::get('/book/{id}', [ReservationController::class, 'index']);
 Route::get('/book-add/{id}', [ReservationController::class, 'insert']);
@@ -49,6 +42,7 @@ Route::get('destinations/{id}', [TripController::class, 'showFilteredProducts'])
 Route::get('/destinations-h2l', [TripController::class, 'showHighestProducts']);
 Route::get('/destinations-l2h', [TripController::class, 'showLowestProducts']);
 Route::get('/show-trip/{id}', [TripController::class, 'show']);
+Route::post('add-inquiry', [InquiryController::class, 'store']);
 
 
 
@@ -90,6 +84,10 @@ Route::middleware(['auth','isAdmin'])->group(function() {
     Route::get('accepted-reservations', [ReservationController::class, 'acceptedIndex']);
     Route::put('accept-reser/{id}', [ReservationController::class, 'acceptStatus']);
     Route::get('reject-reser/{id}', [ReservationController::class, 'destroy']);
+
+    //Inquires /////////////////////////////////
+    Route::get('inquiries', [InquiryController::class, 'adminIndex']);
+
 
 
 });
