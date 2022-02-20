@@ -19,7 +19,6 @@
         @include('layouts.inc.adminnav')
         <div class="container-fluid py-4">
             @yield('content')
-            @include('layouts.inc.adminfooter')
         </div>
     </main>
     <!-- Scripts -->

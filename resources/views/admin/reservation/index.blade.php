@@ -39,12 +39,12 @@
                         <td>{{ $item->totalPrice }}</td>
                         <td>{{ $item->status }}</td>
                         <td>
-                            <form style="display:inline-block" action="{{ url('accept-reser/'.$item->id) }}" method="POST">
+                            <form style="display:inline-block" action="{{ url('accept-reser/'.$item->id.'/'.$item->trip_id) }}" method="POST">
                                 @method('PUT')
                                 @csrf
                                 <button class="btn btn-primary" type="submit">Accept</button>
                             </form>
-                            <form style="display:inline-block" action="{{ url('reject-reser/'.$item->id) }}" method="GET">
+                            <form style="display:inline-block" action="{{  url('reject-reser/'.$item->id.'/'.$item->trip_id) }}" method="GET">
                                 @csrf
                                 <button class="btn btn-primary" type="submit">Delete</button>
                             </form>

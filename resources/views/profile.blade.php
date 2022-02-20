@@ -177,6 +177,7 @@
                                         <th>Number of Passengers</th>
                                         <th>Price</th>
                                         <th>Status</th>
+                                        <th>Action</th>
                                     </tr>
 
 
@@ -188,6 +189,9 @@
                                             <td>{{ $item->quantity }}</td>
                                             <td>{{ $item->totalPrice }} JD</td>
                                             <td>{{ $item->status }}</td>
+                                            @if($item->status == 'pending')
+                                            <td><a href="{{url('/delete-reserve/'.$item->id.'/'.$item->trip_id)}}" style="color:red">Delete</a></td>
+                                            @endif
                                          </tr>
                                     @endforeach
                                 </table>

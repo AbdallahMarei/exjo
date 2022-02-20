@@ -93,7 +93,7 @@
                             {{ Auth::user()->name }}
                             </a>
                             @else
-                            <a class="nav-link" href="dashboard">
+                            <a class="nav-link" href="{{url('dashboard')}}">
                             Dashboard
                             </a>
                             @endif
@@ -122,7 +122,7 @@
     </header>
 
 
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
 

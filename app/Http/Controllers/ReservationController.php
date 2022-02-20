@@ -30,7 +30,7 @@ class ReservationController extends Controller
         $reser->user_id = Auth::user()->id;
         forEach($oneReser as $item)
         {
-            if($item->name == $reser->name && $item->user_id == $reser->user_id){
+            if($item->name == $reser->name && $item->user_id == $reser->user_id && $item->trip_id == $id){
             return redirect('destinations/'.$id)->withErrors('You already have a reservation on this period');
             }
         }
@@ -43,6 +43,8 @@ class ReservationController extends Controller
         $reser->quantity = $request->input('quantity');
         $reser->totalPrice = $totalPrice2;
         $reser->trip_id = $id;
+        $oneTrip->capacity = $oneTrip->capacity - $reser->quantity;
+        $oneTrip->update();
         $reser->save();
         return redirect('/destinations')->withErrors('You have successfully booked the trip');
     }
@@ -58,7 +60,7 @@ class ReservationController extends Controller
         return view('admin.reservation.accepted', compact('reservation'));
 
     }
-    public function acceptStatus ($id){
+    public function acceptStatus ($id,$tid){
         $reservation = Reservation::find($id);
         $reservation->status = "accepted";
         $reservation->update();
@@ -66,10 +68,24 @@ class ReservationController extends Controller
        
 
     }
-    public function destroy ($id){
+    public function destroy ($id, $tid){
         $reservation = Reservation::find($id);
+        $trip = Trip::find($tid);
+        $quantity = $reservation->quantity;
+        $trip->capacity = $trip->capacity + $quantity;
+        $trip->update();
         $reservation->delete();
         return redirect('/reservations')->with('success', 'Reservation Deleted !');
+
+    }
+    public function destroyUser ($id, $tid){
+        $trip = Trip::find($tid);
+        $reservation = Reservation::find($id);
+        $quantity = $reservation->quantity;
+        $trip->capacity = $trip->capacity + $quantity;
+        $trip->update();
+        $reservation->delete();
+        return redirect('/profile')->with('success', 'Reservation Deleted !');
 
     }
 }

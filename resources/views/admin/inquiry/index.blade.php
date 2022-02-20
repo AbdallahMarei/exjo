@@ -12,7 +12,7 @@
             <hr>
         </div>
         <div class="card-body table-responsive">
-            <table class="table  table-bordered table-striped">
+            <table style="table-layout:fixed !important;" class="table  table-bordered table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -25,13 +25,13 @@
                 </thead>
                 <tbody>
                 @foreach($inquiry as $item)
-                    <tr style="height:20vh;" class="border">
+                    <tr class="border">
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->email }}</td>
                         <td>{{ $item->subject }}</td>
-                        <td>{{ $item->message }}</td>
-                        <td>{{ $item->created_at }}</td>
+                        <td style="overflow-x:scroll;">{{ $item->message }}</td>
+                        <td>{{ $item->created_at->diffForHumans() }}</td>
                     </tr>
                 @endforeach
                 </tbody>

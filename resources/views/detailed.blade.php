@@ -13,12 +13,16 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-9">
                     <div class="destination_info">
-                        <h3>Description</h3>
-                        <p>{{$oneTrip->description}}</p>
-                    </div>
-                    <div class="col-md-12">
+                        <h3 style="display:inline-block;">Description</h3>
+                        <div style="display:inline-block;" class="col-md-6 ">
                         <a class="boxed-btn4" href="{{ url('/book/'.$oneTrip->id) }}">Book Now!</a>
                     </div>
+                        <p>{{$oneTrip->description}}</p>
+                    </div>
+                    <div class="col-md-3">
+
+                    </div>
+
                 </div>          
             </div>
         </div>
@@ -60,96 +64,6 @@
     </div>
     <!-- newletter_area_end  -->
 
-    <div class="popular_places_area">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section_title text-center mb_70">
-                        <h3>More Places</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_place">
-                        <div class="thumb">
-                            <img src="img/place/1.png" alt="">
-                            <a href="#" class="prise">$500</a>
-                        </div>
-                        <div class="place_info">
-                            <a href="#"><h3>California</h3></a>
-                            <p>United State of America</p>
-                            <div class="rating_days d-flex justify-content-between">
-                                <span class="d-flex justify-content-center align-items-center">
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i>
-                                     <a href="#">(20 Review)</a>
-                                </span>
-                                <div class="days">
-                                    <i class="fa fa-clock-o"></i>
-                                    <a href="#">5 Days</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_place">
-                        <div class="thumb">
-                            <img src="img/place/2.png" alt="">
-                            <a href="#" class="prise">$500</a>
-                        </div>
-                        <div class="place_info">
-                            <a href="#"><h3>Korola Megna</h3></a>
-                            <p>United State of America</p>
-                            <div class="rating_days d-flex justify-content-between">
-                                <span class="d-flex justify-content-center align-items-center">
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i>
-                                     <a href="#">(20 Review)</a>
-                                </span>
-                                <div class="days">
-                                    <i class="fa fa-clock-o"></i>
-                                    <a href="#">5 Days</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_place">
-                        <div class="thumb">
-                            <img src="img/place/3.png" alt="">
-                            <a href="#" class="prise">$500</a>
-                        </div>
-                        <div class="place_info">
-                            <a href="#"><h3>London</h3></a>
-                            <p>United State of America</p>
-                            <div class="rating_days d-flex justify-content-between">
-                                <span class="d-flex justify-content-center align-items-center">
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i>
-                                     <a href="#">(20 Review)</a>
-                                </span>
-                                <div class="days">
-                                    <i class="fa fa-clock-o"></i>
-                                    <a href="#">5 Days</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
 @endsection

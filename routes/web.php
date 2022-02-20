@@ -43,6 +43,7 @@ Route::get('/destinations-h2l', [TripController::class, 'showHighestProducts']);
 Route::get('/destinations-l2h', [TripController::class, 'showLowestProducts']);
 Route::get('/show-trip/{id}', [TripController::class, 'show']);
 Route::post('add-inquiry', [InquiryController::class, 'store']);
+Route::get('delete-reserve/{id}/{tid}', [ReservationController::class, 'destroyUser']);
 
 
 
@@ -82,8 +83,9 @@ Route::middleware(['auth','isAdmin'])->group(function() {
     // Reservations ////////////////////////////
     Route::get('reservations', [ReservationController::class, 'adminIndex']);
     Route::get('accepted-reservations', [ReservationController::class, 'acceptedIndex']);
-    Route::put('accept-reser/{id}', [ReservationController::class, 'acceptStatus']);
-    Route::get('reject-reser/{id}', [ReservationController::class, 'destroy']);
+    Route::put('accept-reser/{id}/{tid}', [ReservationController::class, 'acceptStatus']);
+    Route::get('reject-reser/{id}/{tid}', [ReservationController::class, 'destroy']);
+
 
     //Inquires /////////////////////////////////
     Route::get('inquiries', [InquiryController::class, 'adminIndex']);

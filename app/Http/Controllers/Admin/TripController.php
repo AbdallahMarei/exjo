@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Trip;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Country;
+use App\Models\Reservation;
 
 class TripController extends Controller
 {
@@ -132,6 +133,7 @@ class TripController extends Controller
                 Storage::disk('local')->delete($path);
             }
         }
+        Reservation::where('trip_id','=',$id)->delete();
         $trip->delete();
         return redirect('/trips')->with('success', 'Deleted Successfully!');
     }
