@@ -29,8 +29,8 @@
                     <script>
                         function initMap() {
                             var uluru = {
-                                lat: -25.363,
-                                lng: 131.044
+                                lat: 31.963158,
+                                lng: 35.930359
                             };
                             var grayStyles = [{
                                     featureType: "all",
@@ -51,10 +51,10 @@
                             ];
                             var map = new google.maps.Map(document.getElementById('map'), {
                                 center: {
-                                    lat: -31.197,
-                                    lng: 150.744
+                                    lat: 31.963158,
+                                    lng: 35.930359
                                 },
-                                zoom: 9,
+                                zoom: 11,
                                 styles: grayStyles,
                                 scrollwheel: false
                             });
@@ -104,21 +104,21 @@
                         <div class="media contact-info">
                             <span class="contact-info__icon"><i class="ti-home"></i></span>
                             <div class="media-body">
-                                <h3>Buttonwood, California.</h3>
-                                <p>Rosemead, CA 91770</p>
+                                <h3>Amman, Jordan.</h3>
+                                <p>Khalda, AM 153</p>
                             </div>
                         </div>
                         <div class="media contact-info">
                             <span class="contact-info__icon"><i class="ti-tablet"></i></span>
                             <div class="media-body">
-                                <h3>+1 253 565 2365</h3>
+                                <h3>0777777777</h3>
                                 <p>Mon to Fri 9am to 6pm</p>
                             </div>
                         </div>
                         <div class="media contact-info">
                             <span class="contact-info__icon"><i class="ti-email"></i></span>
                             <div class="media-body">
-                                <h3>support@colorlib.com</h3>
+                                <h3>support@exjo.com</h3>
                                 <p>Send us your query anytime!</p>
                             </div>
                         </div>

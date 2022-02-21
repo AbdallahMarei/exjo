@@ -67,9 +67,9 @@
                     <div class="row">
                         @foreach($trip as $val)
                         @if($val->capacity>0)
+                        <div class="col-md-6">
                         <a href="{{ URL::to('show-trip/' . $val->id) }}">
-                            <div class="col-lg-6 col-md-6">
-                                <div class="single_place">
+                            <div class="single_place">
                                     <div class="thumb">
                                         <img src="{{ asset('/assets/uploads/trip/'.$val->image) }}" alt="">
                                         <p  class="prise">${{$val->price}}</p>
@@ -90,8 +90,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                         @endif
                         @endforeach
                     </div>

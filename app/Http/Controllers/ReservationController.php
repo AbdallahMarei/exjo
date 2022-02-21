@@ -31,7 +31,7 @@ class ReservationController extends Controller
         forEach($oneReser as $item)
         {
             if($item->name == $reser->name && $item->user_id == $reser->user_id && $item->trip_id == $id){
-            return redirect('destinations/'.$id)->withErrors('You already have a reservation on this period');
+            return redirect('destinations')->withErrors('You already have a reservation on this period');
             }
         }
        

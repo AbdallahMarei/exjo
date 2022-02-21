@@ -46,28 +46,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="counter_wrap">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4">
-                                        <div class="single_counter text-center">
-                                            <h3  class="counter">378</h3>
-                                            <p>Tour has done successfully</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4">
-                                        <div class="single_counter text-center">
-                                            <h3 class="counter">30</h3>
-                                            <p>Yearly tour arrange</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4">
-                                        <div class="single_counter text-center">
-                                            <h3 class="counter">2263</h3>
-                                            <p>Happy Clients</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

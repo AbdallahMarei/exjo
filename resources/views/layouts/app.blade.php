@@ -137,9 +137,9 @@
                                     <img src="{{asset('img/footer_logo.png')}}" alt="">
                                 </a>
                             </div>
-                            <p>5th flora, 700/D kings road, green <br> lane New York-1782 <br>
-                                <a href="#">+10 367 826 2567</a> <br>
-                                <a href="#">contact@carpenter.com</a>
+                            <p>Mecca St, Khalda, building 4 <br> Ammna, Jordan<br>
+                                <a href="#">077777777</a> <br>
+                                <a href="#">info@exjo.com</a>
                             </p>
                             <div class="socail_links">
                                 <ul>
@@ -179,10 +179,10 @@
                                 Company
                             </h3>
                             <ul class="links">
-                                <li><a href="#">Pricing</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#"> Gallery</a></li>
-                                <li><a href="#"> Contact</a></li>
+                                <li><a href="{{ url('/') }}">Home</a></li>
+                                <li><a href="{{ url('/about') }}">About</a></li>
+                                <li><a href="{{ url('/destinations') }}"> Destinations</a></li>
+                                <li><a href="{{ url('/contact') }}"> Contact</a></li>
                             </ul>
                         </div>
                     </div>
