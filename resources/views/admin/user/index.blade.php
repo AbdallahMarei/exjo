@@ -31,10 +31,12 @@
                         <td>{{ $item->email }}</td>
                         <td >{{ $item->name }}</td>
                         <td>{{ $item->role_as == 1 ? 'Admin' : 'User'}}</td>
+                        @if($item->role_as == 0)
                         <td>
                             <a href="{{ url('edit-user/'.$item->id) }}" class="btn btn-primary">Edit</a>
                             <a href="{{ url('delete-user/'.$item->id) }}" class="btn btn-danger">Delete</a>
                         </td>
+                        @endif
                     </tr>
                 @endforeach
                 </tbody>
