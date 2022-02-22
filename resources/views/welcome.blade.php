@@ -185,9 +185,9 @@
                                         <div class="author_thumb">
                                             <img src="img/testmonial/author.png" alt="">
                                         </div>
-                                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering.</p>
+                                        <p>"Amazing coordination and brilliant task, it was really easy to book a trip and the procedure was super smooth."</p>
                                         <div class="testmonial_author">
-                                            <h3>- Micky Mouse</h3>
+                                            <h3>- Ghassan Dabak</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -200,9 +200,9 @@
                                         <div class="author_thumb">
                                             <img src="img/testmonial/author.png" alt="">
                                         </div>
-                                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering.</p>
+                                        <p>"The trips that they have are amazing and the tour guides showed us places that are very beautiful and unique."</p>
                                         <div class="testmonial_author">
-                                            <h3>- Tom Mouse</h3>
+                                            <h3>- Mahdi Suleiman.</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -215,9 +215,9 @@
                                         <div class="author_thumb">
                                             <img src="img/testmonial/author.png" alt="">
                                         </div>
-                                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering.</p>
+                                        <p>"What an amazing experience and an amazing staff that made sure everything went smoothly, it was an amazing experience."</p>
                                         <div class="testmonial_author">
-                                            <h3>- Jerry Mouse</h3>
+                                            <h3>- Azmi Tamam</h3>
                                         </div>
                                     </div>
                                 </div>
